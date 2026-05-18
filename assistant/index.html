@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarvis Retro AI Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Retro Skeuomorphic Device Chassis -->
+  <div class="device-chassis">
+    
+    <!-- Glossy Chrome Header / Drag Bar -->
+    <div class="device-header">
+      <div class="drag-bar">
+        <span class="screw screw-left"></span>
+        <span class="header-title">JARVIS SYSTEM CONSOLE</span>
+        <span class="screw screw-right"></span>
+      </div>
+      <button class="close-btn" id="closeBtn" title="Deactivate Console">X</button>
+    </div>
+
+    <!-- Active Indicator Light Diodes -->
+    <div class="diode-panel">
+      <div class="diode-group">
+        <div class="diode-light active-green" id="powerDiode"></div>
+        <span class="diode-label">POWER</span>
+      </div>
+      <div class="diode-group">
+        <div class="diode-light" id="micDiode"></div>
+        <span class="diode-label">MIC ACTIVE</span>
+      </div>
+      <div class="diode-group">
+        <div class="diode-light" id="thinkDiode"></div>
+        <span class="diode-label">PROCESSOR</span>
+      </div>
+    </div>
+
+    <!-- CRT Monitor Screen Frame -->
+    <div class="crt-frame">
+      <div class="crt-screen">
+        <!-- CRT Scanline Grid & Flicker Effects -->
+        <div class="crt-scanlines"></div>
+        <div class="crt-flicker"></div>
+        
+        <!-- CRT Content -->
+        <div class="crt-content">
+          <div class="crt-header">
+            <span>SYS_LOC: LOCALHOST</span>
+            <span id="crtTime">12:00:00</span>
+          </div>
+
+          <!-- Dynamic State Display -->
+          <div class="status-panel">
+            <span class="status-prefix">STATUS:</span>
+            <span class="status-value" id="statusText">SLEEPING</span>
+          </div>
+
+          <!-- Dynamic Audio Equalizer Waveform Widget -->
+          <div class="eq-container" id="eqContainer">
+            <!-- 10 glowing bars -->
+            <div class="eq-bar bar-1"></div>
+            <div class="eq-bar bar-2"></div>
+            <div class="eq-bar bar-3"></div>
+            <div class="eq-bar bar-4"></div>
+            <div class="eq-bar bar-5"></div>
+            <div class="eq-bar bar-6"></div>
+            <div class="eq-bar bar-7"></div>
+            <div class="eq-bar bar-8"></div>
+            <div class="eq-bar bar-9"></div>
+            <div class="eq-bar bar-10"></div>
+          </div>
+
+          <!-- Terminal Output Log -->
+          <div class="terminal-container">
+            <div class="terminal-log" id="terminalLog">
+              <div class="system-msg">** JARVIS ENGINE INITIALIZED V1.0 **</div>
+              <div class="system-msg">SKEUOMORPHIC NEURAL CORE: ONLINE</div>
+              <div class="system-msg" id="wakeWordMsg">WAKE WORD: "JARVIS"</div>
+              <div class="system-msg">AWAITING VOCAL TRIGGER...</div>
+            </div>
+          </div>
+
+          <!-- Bottom Text Input Console (Fallback Prompt) -->
+          <div class="console-prompt">
+            <span class="prompt-arrow">&gt;&gt;</span>
+            <input type="text" id="consoleInput" placeholder="Enter manual command or ask AI..." autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skeuomorphic Glossy Controls Area -->
+    <div class="device-controls">
+      <!-- Large round plastic button to activate manual listening -->
+      <div class="control-knob-container">
+        <button class="dome-button" id="micTriggerBtn" title="Trigger Voice Listening">
+          <span class="dome-highlight"></span>
+          <span class="mic-icon">🎤</span>
+        </button>
+        <span class="knob-label">MANUAL WAKE</span>
+      </div>
+
+      <!-- Dial knob (decorative Y2K detail) -->
+      <div class="decorative-dial">
+        <div class="dial-pointer"></div>
+      </div>
+      
+      <!-- Brand Name Plate -->
+      <div class="brand-plate">
+        <span class="brand-text">J.A.R.V.I.S.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

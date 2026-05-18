@@ -1,0 +1,15 @@
+{
+  "name": "jarvis-assistant",
+  "version": "1.0.0",
+  "description": "Customizable Retro Y2K AI Desktop Assistant",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "say": "^0.16.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}

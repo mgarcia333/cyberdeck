@@ -1,0 +1,19 @@
+{
+  "assistantName": "Jarvis",
+  "wakeWord": "jarvis",
+  "ttsVoice": "Default",
+  "llmProvider": "gemini",
+  "apiKey": "YOUR_API_KEY_HERE",
+  "customCommands": [
+    {
+      "trigger": "open google",
+      "actionType": "open_url",
+      "payload": "https://google.com"
+    },
+    {
+      "trigger": "launch dashboard",
+      "actionType": "open_url",
+      "payload": "http://localhost:3000"
+    }
+  ]
+}
