@@ -1,7 +1,7 @@
 @echo off
-title JARVIS LAUNCH ENGINE
+title CYBERDECK LAUNCH ENGINE
 echo =======================================================
-echo          INITIALIZING NEURAL JARVIS CORES
+echo          INITIALIZING NEURAL CYBERDECK CORES
 echo =======================================================
 
 echo Starting Next.js Control Panel...
@@ -11,6 +11,6 @@ echo Starting Electron Desktop Client...
 start cmd /k "cd /d c:\Users\Practicas\Desktop\jarvi\assistant && npm start"
 
 echo =======================================================
-echo          JARVIS ENGINE RUNNING CONCURRENTLY!
+echo          CYBERDECK ENGINE RUNNING CONCURRENTLY!
 echo =======================================================
 exit

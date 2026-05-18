@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 
-export default function JarvisConfig() {
+export default function CyberdeckConfig() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [showApiKey, setShowApiKey] = useState(false);
@@ -13,8 +13,8 @@ export default function JarvisConfig() {
 
   const { register, control, handleSubmit, reset } = useForm({
     defaultValues: {
-      assistantName: 'Jarvis',
-      wakeWord: 'jarvis',
+      assistantName: 'Cyberdeck',
+      wakeWord: 'cyberdeck',
       ttsVoice: 'Default',
       llmProvider: 'gemini',
       apiKey: '',
@@ -68,7 +68,7 @@ export default function JarvisConfig() {
       }
     }
     loadConfig();
-  }, [reset]);
+  }, []);
 
   const onSubmit = async (data) => {
     setSaving(true);
@@ -262,7 +262,7 @@ export default function JarvisConfig() {
                       <label className="block font-label-md text-label-md text-on-surface-variant uppercase mb-1">Assistant Name</label>
                       <input 
                         className="w-full bg-surface/50 border-b border-outline-variant focus:border-secondary-fixed text-on-surface py-2 px-1 focus:outline-none font-body-md text-body-md transition-colors placeholder-on-surface-variant/50" 
-                        placeholder="e.g. Jarvis" 
+                        placeholder="e.g. Cyberdeck" 
                         type="text" 
                         {...register('assistantName')}
                       />
@@ -271,7 +271,7 @@ export default function JarvisConfig() {
                       <label className="block font-label-md text-label-md text-on-surface-variant uppercase mb-1">Voice Wake Word</label>
                       <input 
                         className="w-full bg-surface/50 border-b border-outline-variant focus:border-secondary-fixed text-on-surface py-2 px-1 focus:outline-none font-body-md text-body-md transition-colors placeholder-on-surface-variant/50" 
-                        placeholder="e.g. jarvis" 
+                        placeholder="e.g. cyberdeck" 
                         type="text" 
                         {...register('wakeWord')}
                       />

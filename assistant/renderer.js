@@ -8,6 +8,7 @@ const eqContainer = document.getElementById('eqContainer');
 const terminalLog = document.getElementById('terminalLog');
 const consoleInput = document.getElementById('consoleInput');
 const closeBtn = document.getElementById('closeBtn');
+const minBtn = document.getElementById('minBtn');
 const micTriggerBtn = document.getElementById('micTriggerBtn');
 
 const powerDiode = document.getElementById('powerDiode');
@@ -41,9 +42,9 @@ function appendLog(sender, text) {
   if (sender === 'USER') {
     msgDiv.className = 'user-msg';
     msgDiv.innerHTML = `<span class="system-msg">[USER] &gt;</span> ${text}`;
-  } else if (sender === 'JARVIS') {
+  } else if (sender === 'CYBERDECK') {
     msgDiv.className = 'assistant-msg';
-    msgDiv.innerHTML = `<span class="system-msg">[JARVIS] &gt;</span> ${text}`;
+    msgDiv.innerHTML = `<span class="system-msg">[CYBERDECK] &gt;</span> ${text}`;
   } else {
     msgDiv.className = 'system-msg';
     msgDiv.textContent = `SYSTEM: ${text}`;
@@ -91,6 +92,12 @@ closeBtn.addEventListener('click', () => {
   window.close(); // Closes the Electron process safely
 });
 
+if (minBtn) {
+  minBtn.addEventListener('click', () => {
+    window.electronAPI.minimize();
+  });
+}
+
 // IPC handlers from the main process
 window.electronAPI.onStateChange((state) => {
   changeState(state);
@@ -98,7 +105,7 @@ window.electronAPI.onStateChange((state) => {
 
 window.electronAPI.onAssistantResponse((data) => {
   if (data && data.text) {
-    appendLog('JARVIS', data.text);
+    appendLog('CYBERDECK', data.text);
   }
 });
 

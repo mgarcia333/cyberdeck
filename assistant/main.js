@@ -71,7 +71,7 @@ function startDashboardServer() {
     // Serve Static Next.js Web Assets
     let filePath = path.join(__dirname, 'dashboard_dist', pathname === '/' ? 'index.html' : pathname);
 
-    // Support static clean-url routings (e.g. /dashboard/jarvis-config maps to jarvis-config.html)
+    // Support static clean-url routings (e.g. /dashboard/cyberdeck-config maps to cyberdeck-config.html)
     if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
       filePath += '.html';
     }
@@ -90,14 +90,18 @@ function startDashboardServer() {
       res.writeHead(200, { 'Content-Type': contentType });
       fs.createReadStream(filePath).pipe(res);
     } else {
-      // Client-side Next.js SPA Routing fallback
+      // Client-side Next.js SPA Routing fallback: Only for HTML navigation requests, never for static assets or API routes!
+      const acceptHeader = req.headers['accept'] || '';
+      const isHtmlRequest = acceptHeader.includes('text/html');
+      const hasExtension = path.extname(pathname) !== '';
+
       const fallbackPath = path.join(__dirname, 'dashboard_dist', 'index.html');
-      if (fs.existsSync(fallbackPath)) {
+      if (isHtmlRequest && !hasExtension && fs.existsSync(fallbackPath)) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         fs.createReadStream(fallbackPath).pipe(res);
       } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Web Console Not Found. Please compile the Next.js static build.');
+        res.end('404 Not Found');
       }
     }
   });
@@ -120,7 +124,7 @@ function createWindow() {
     resizable: false,
     frame: false, // Frameless design
     transparent: true,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     show: !isHiddenStartup, // Starts hidden if Windows launched it at startup
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -151,7 +155,7 @@ function createTray() {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Open Jarvis Console',
+      label: 'Open Cyberdeck Console',
       click: () => { if (win) win.show(); }
     },
     {
@@ -173,7 +177,7 @@ function createTray() {
     },
     { type: 'separator' },
     {
-      label: 'Deactivate Jarvis (Exit)',
+      label: 'Deactivate Cyberdeck (Exit)',
       click: () => {
         appIsQuitting = true;
         app.quit();
@@ -181,7 +185,7 @@ function createTray() {
     }
   ]);
 
-  tray.setToolTip('J.A.R.V.I.S. - Cyberdeck Assistant');
+  tray.setToolTip('CYBERDECK - AI System Assistant');
   tray.setContextMenu(contextMenu);
 
   // Single-click or double-click to slide the screen on
@@ -258,6 +262,13 @@ function speakText(text, voiceName) {
 }
 
 // IPC Interfaces
+ipcMain.on('minimize-window', () => {
+  if (win) {
+    win.minimize();
+    console.log('[Lifecycle] Window minimized to Taskbar.');
+  }
+});
+
 ipcMain.handle('get-config', () => {
   return configManager.getConfig();
 });

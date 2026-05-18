@@ -10,5 +10,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   
   // Output Responses and State Changes
   onAssistantResponse: (callback) => ipcRenderer.on('assistant-response', (event, data) => callback(data)),
-  onStateChange: (callback) => ipcRenderer.on('state-change', (event, state) => callback(state))
+  onStateChange: (callback) => ipcRenderer.on('state-change', (event, state) => callback(state)),
+
+  // Window Controls
+  minimize: () => ipcRenderer.send('minimize-window')
 });

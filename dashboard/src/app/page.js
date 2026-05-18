@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import CyberdeckConfig from './dashboard/cyberdeck-config/page';
 
 export default function Home() {
-  redirect('/dashboard/jarvis-config');
+  return <CyberdeckConfig />;
 }

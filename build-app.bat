@@ -1,7 +1,7 @@
 @echo off
-title JARVIS COMPILER ENGINE
+title CYBERDECK COMPILER ENGINE
 echo =======================================================
-echo          COMPILING STANDALONE JARVIS CLIENT
+echo          COMPILING STANDALONE CYBERDECK CLIENT
 echo =======================================================
 
 echo [1/3] Compiling Next.js Control Panel...
@@ -15,7 +15,7 @@ if exist c:\Users\Practicas\Desktop\jarvi\assistant\dashboard_dist (
 mkdir c:\Users\Practicas\Desktop\jarvi\assistant\dashboard_dist
 xcopy /s /e /y out c:\Users\Practicas\Desktop\jarvi\assistant\dashboard_dist\
 
-echo [3/3] Packaging standalone Windows executable (Jarvis.exe)...
+echo [3/3] Packaging standalone Windows executable (Cyberdeck.exe)...
 cd /d c:\Users\Practicas\Desktop\jarvi\assistant
 call npm run package
 
@@ -23,7 +23,7 @@ echo =======================================================
 echo          COMPILATION SUCCESSFUL!
 echo =======================================================
 echo The compiled desktop folder is located at:
-echo c:\Users\Practicas\Desktop\jarvi\assistant\dist\Jarvis-win32-x64\
-echo Double-click Jarvis.exe to run it!
+echo c:\Users\Practicas\Desktop\jarvi\assistant\dist\Cyberdeck-win32-x64\
+echo Double-click Cyberdeck.exe to run it!
 echo =======================================================
 pause

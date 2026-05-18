@@ -14,14 +14,23 @@ class ConfigManager {
 
   loadConfig() {
     try {
-      if (fs.existsSync(this.configPath)) {
-        const data = fs.readFileSync(this.configPath, 'utf8');
-        if (data.trim() === '') return; // Wait if file is currently empty/being written
-        this.config = JSON.parse(data);
-        console.log('[ConfigManager] Config loaded successfully:', this.config);
-      } else {
-        console.warn('[ConfigManager] Config file does not exist at:', this.configPath);
+      if (!fs.existsSync(this.configPath)) {
+        console.log('[ConfigManager] Creating default config.json at:', this.configPath);
+        const defaultConfig = {
+          assistantName: 'Cyberdeck',
+          wakeWord: 'cyberdeck',
+          ttsVoice: 'Default',
+          llmProvider: 'gemini',
+          apiKey: '',
+          customCommands: []
+        };
+        fs.writeFileSync(this.configPath, JSON.stringify(defaultConfig, null, 2), 'utf8');
       }
+
+      const data = fs.readFileSync(this.configPath, 'utf8');
+      if (data.trim() === '') return; // Wait if file is currently empty/being written
+      this.config = JSON.parse(data);
+      console.log('[ConfigManager] Config loaded successfully:', this.config);
     } catch (error) {
       console.error('[ConfigManager] Error reading/parsing config file:', error.message);
     }
