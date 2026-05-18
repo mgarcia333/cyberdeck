@@ -1,4 +1,4 @@
-# 📺 J.A.R.V.I.S. - Retro Y2K Cyberdeck Assistant
+# 📺- Retro Cyberdeck AI Assistant
 
 [![Node.js Version](https://img.shields.io/badge/Node.js-v24.15.0-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Electron](https://img.shields.io/badge/Electron-v30.0.0-47848F?style=for-the-badge&logo=electron&logoColor=white)](https://www.electronjs.org/)
@@ -128,5 +128,5 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para má
 ---
 
 <p align="center">
- Desarrollado con 💚 para los entusiastas del Cyberpunk y el diseño Skeuomorphic Retro Y2K.
+ Desarrollado con por @mgarcia333
 </p>
