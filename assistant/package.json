@@ -4,12 +4,15 @@
   "description": "Customizable Retro Y2K AI Desktop Assistant",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-dashboard": "cd ../dashboard && npm run build && xcopy /s /e /y out ..\\assistant\\dashboard_dist\\",
+    "package": "npm run build-dashboard && electron-packager . Jarvis --platform=win32 --arch=x64 --overwrite --out=dist"
   },
   "dependencies": {
     "say": "^0.16.0"
   },
   "devDependencies": {
-    "electron": "^30.0.0"
+    "electron": "^30.0.0",
+    "electron-packager": "^17.1.2"
   }
 }
