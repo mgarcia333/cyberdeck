@@ -151,7 +151,7 @@ export default function CyberdeckConfig() {
       {/* TopNavBar */}
       <nav className="bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-gutter h-16 z-40 shrink-0">
         <div className="flex items-center gap-gutter">
-          <span className="font-headline-md text-headline-md font-bold text-secondary-fixed tracking-tight">AEX-CONTROL</span>
+          <span className="font-headline-md text-headline-md font-bold text-secondary-fixed tracking-tight">CYBERDECK-CONTROL</span>
         </div>
         <div className="flex items-center gap-unit">
           <div className="relative w-64 hidden md:block">
@@ -181,7 +181,7 @@ export default function CyberdeckConfig() {
           </button>
           <div className="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center overflow-hidden shrink-0">
             <div className="w-full h-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-xs uppercase">
-              JV
+              CD
             </div>
           </div>
         </div>
@@ -239,8 +239,8 @@ export default function CyberdeckConfig() {
         <main className="flex-1 overflow-y-auto bg-background p-gutter md:p-margin-desktop flex justify-center">
           <div className="max-w-container-max w-full flex flex-col gap-margin-desktop">
             <header className="mb-gutter">
-              <h1 className="font-headline-lg text-headline-lg hidden md:block text-primary">System Dashboard</h1>
-              <h1 className="font-headline-md text-headline-md md:hidden text-primary">System Dashboard</h1>
+              <h1 className="font-headline-lg text-headline-lg hidden md:block text-primary">Cyberdeck Control Panel</h1>
+              <h1 className="font-headline-md text-headline-md md:hidden text-primary">Cyberdeck Control Panel</h1>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">Configure core operational parameters and custom action logic.</p>
             </header>
 
