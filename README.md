@@ -128,5 +128,5 @@ Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para má
 ---
 
 <p align="center">
- Desarrollado con por @mgarcia333
+ Desarrollado con 💚 por @mgarcia333
 </p>
